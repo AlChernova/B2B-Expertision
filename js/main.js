@@ -16,7 +16,38 @@ HeightHeader;
 WidthWin = $(window).width();
 HeightHeader =  $("header").height();
 
+function FixedNavbar() {
+    if ($(window).scrollTop() > 0) {
+        $("header").addClass("fixed");
+        $("body").addClass("scroll").css({paddingTop: HeightHeader});
+    } else {
+        $("header").removeClass("fixed");
+        $("body").removeClass("scroll").css({paddingTop: '0'});
+    }
+}
+
+function FormAnimate () {
+    var WinScroll = $(window).scrollTop();
+    var topPos = $('.expertise').offset().top;
+    var pointEnter = topPos - WinScroll;
+    //console.log (pointEnter);
+    if (WidthWin < 1024) {
+        if (pointEnter <= 0) {
+            $(".box-form_callme, .slider-exp").addClass("YesAnimate");
+        }
+    } else if (WidthWin >= 1024 & WidthWin < 1410) {
+        if (pointEnter <= 200) {
+            $(".box-form_callme, .slider-exp").addClass("YesAnimate");
+        }
+    } else if (WidthWin >= 1410) {
+        if (pointEnter <= 400) {
+            $(".box-form_callme, .slider-exp").addClass("YesAnimate");
+        }
+    }
+}
+
 $(document).ready(function(){
+        FixedNavbar();    
     if (WidthWin <= 960) {
         $(document).on("click", ".open_nav, header .callme a", function () {
                 $("header .contacts").toggleClass("open");
@@ -40,4 +71,8 @@ $(document).ready(function(){
         });
     }
 
+});
+$(window).scroll(function() {
+    FixedNavbar();
+    FormAnimate();
 });
