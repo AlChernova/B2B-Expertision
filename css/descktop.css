@@ -1,0 +1,203 @@
+/*
+================
+1024px
+================
+*/
+@media (min-width: 1024px) {
+	/* offer 1024px */
+	.offer .img {right: auto; left: 49%; height: 98%;}
+	.offer .signman {width: 30%; padding: 0; right: 0; top: 15%; text-align: left;}
+		.offer .signman p:first-child {padding-bottom: 0.7em; border-bottom: 1px solid #bf9037;}
+	.offer .list {margin-top: 40px;}
+	/* expertise 1024px */
+	.expertise {position: relative;}
+	.expertise .main-text {position: static;}
+		.expertise h2 {width: 93%; font-size: 137%;}
+		.expertise h2 span:last-child {font-size: 253%; line-height: 1.6ex;}
+		.expertise .main-text .title {
+			top: 6.2em; bottom: auto; width: 51.5%; 
+			padding: 0.6em calc((100vw - 960px)/2) 0.6em 1em; 
+			font-size: 92%;
+		}
+			.expertise .main-text .title p {max-width: 635px;}
+
+	/* экспертиза 1024px */
+	.expertise .slider-exp {flex-direction: column;}
+		.expertise .slider-exp .item:nth-of-type(1) {
+			z-index: 2;
+		} 
+		.expertise .slider-exp .item:nth-of-type(2) {
+			z-index: 1; margin-top: -40px; margin-left: 22%;
+		}
+		.expertise .slider-exp .item:nth-of-type(3) {
+			margin-top: -40px;
+		}
+		.expertise .slider-exp .item::after {
+			top: calc(50% - 0.5rem + 10px); left: 85%;
+			height: 2px !important; width: 205px;
+		}
+		.expertise .slider-exp .item:nth-of-type(1)::after {
+			width: 227px;
+		}
+		.expertise .slider-exp .item:nth-of-type(2)::after {
+			width: 19px;
+		}
+		.expertise .slider-exp .item::before {
+			left: 441px; top: calc(50% - 3px);
+		}
+		.expertise .slider-exp .item:nth-of-type(1)::before {
+			left: 466px;
+		}
+		.expertise .slider-exp .item:nth-of-type(2)::before {
+			left: 256px;
+		}
+	.expertise .slider-exp .img {position: relative;}
+	.expertise .slider-exp .img::after {
+		display: block; content: "";
+		position: absolute; width: 20px; height: 20px;
+		background: #bf9037; border-radius: 50%;
+		top: calc(50% + 2px); right: 12%;
+	}
+}
+
+/*
+================
+1240px (перерасчет для ширины экрана 1280 с учетом рамки браузера)
+================
+*/
+
+@media (min-width: 1240px) {
+	/* Формы. 1280px Hover-еффекты*/
+	.button.but-main:hover {
+		background: #000; color: #bf9037;
+	}
+	.button.but-light:hover {background: #bf9037; color: #000;}
+	input[type="submit"]:hover, input[type="button"]:hover {
+		background: #000; color: #bf9037;
+	}
+
+
+	/* header 1280px */
+	header {height: 85px;}
+		header .logo {width: 282px;}
+		header .contacts {font-size: 100%;}
+		header .geo {margin-right: 10px;}
+		header .contacts .phone {padding-right: 66px; padding-left: 27px;}
+		header .callme {width: 323px; text-transform: uppercase; font-size: 18px;}
+		header .callme .button {padding-top: 0.5em; padding-bottom: 0.5em;}
+
+	/* offer 1280px */
+	.offer {height: 70vh;}
+	.offer .img {width: 440px;}
+	.offer h1 {font-size: 185%;}
+	.offer .list {font-size: 130%; padding-bottom: 70px;}
+	.offer .callme {font-size: 125%; left: 90px;}
+	.offer .callme::after {top: calc(50% + 1px); width: 90px; left: -90px;}
+	.offer .signman {font-size: 90%;}
+		.offer .signman p:last-child {width: 250px;}
+
+	/* expertise 1280px */
+	.expertise .main-text .title {
+		padding-right: calc((100vw - 1220px)/2); 
+	}
+	.expertise h2 span:last-child {
+		font-size: 293%; line-height: 1.4ex;
+	}
+	.expertise .slider-exp .item:nth-of-type(2) {margin-left: 30%;}
+	.expertise .slider-exp .item::before {width: 15px; height: 15px; top: calc(50% - 5px);}
+	.expertise .slider-exp .item::after	{width: 383px;}
+	.expertise .slider-exp .item:nth-of-type(1)::after {
+		width: 409px;
+	}
+	.expertise .slider-exp .item:nth-of-type(2)::after {
+		width: 140px;
+	}
+.expertise .slider-exp .item::before {left: 620px;}
+.expertise .slider-exp .item:nth-of-type(1)::before {left: 643px;}
+.expertise .slider-exp .item:nth-of-type(2)::before {left: 376px;}
+
+}
+
+/*
+================
+1410px  (перерасчет для ширины экрана 1440 с учетом рамки браузера) 
+================
+*/
+
+@media (min-width: 1410px) {
+	/* offer 1440px */
+	.offer {height: 779px;}
+	.offer h1 {margin-top: 73px; line-height: 2.1ex;}
+	.offer h1 span.b {
+		font-size: 306%; line-height: 2.1ex; letter-spacing: 2px;
+		margin-top: 9px; margin-bottom: 10px;
+	}
+	.offer .img {width: 600px;}
+	.offer .signman {
+		width: calc(50% - 367px); max-width: none;
+		font-size: 102%; top: 132px;
+	}
+	.offer .signman p:first-child {padding-bottom: 0.4em; margin-bottom: 0.4em;}
+	.offer .signman p:last-child {width: 280px; line-height: 1.4em;}	
+	.offer .list {
+		font-size: 195%;   margin-top: 35px;
+		padding-bottom: 60px; padding-left: 23px;
+	}
+	.offer .list::after {height: 9px;}
+	.offer .list ul {text-transform: none;}
+	.offer li {margin-bottom: 1.2em;}
+	.offer li::after {
+		width: 15px; height: 15px;
+		top: 0.6ex; left: -32px;
+	}
+	.offer .callme {font-size: 157%; left: 115px;}
+	.offer .callme::after {width: 115px; left: -115px; top: calc(50% + 2px);}
+	.offer .callme a {width: 440px;}
+
+	/* expertise 1440px */
+	.expertise h2 {font-size: 200%; line-height: 1.35em;letter-spacing: 0;}
+	.expertise h2 span:last-child {font-size: 252%; line-height: 1.35ex; letter-spacing: 3px;}
+	.expertise .main-text .title {
+		top: 6.1em; padding-right: calc((100vw - 1410px)/2); padding-bottom: 0.8em;
+		font-size: 128%; line-height: 1.35em; 
+	}
+	.expertise .slider-exp {margin-top: 32px;}
+	.expertise .slider-exp .item {text-align: left;}
+	.expertise .slider-exp .img {padding: 0;}
+	.expertise .slider-exp img {width: auto;}
+	.expertise .slider-exp .item p {margin-top: -0.9rem; font-size: 149%; position: relative;}
+	.expertise .slider-exp .item:nth-of-type(2) {margin-left: 48.5%; margin-top: -73px;}
+	.expertise .slider-exp .item:nth-of-type(3) {margin-top: -61px;}
+	.expertise .slider-exp .img::after {
+		width: 30px; height: 30px;
+		left: 274px; top: calc(50% - 5px);
+	}
+	.expertise .slider-exp .item::after {left: 300px;width: 551px;}
+	.expertise .slider-exp .item:nth-of-type(1)::after {
+		width: 543px;
+	}
+	.expertise .slider-exp .item:nth-of-type(2)::after {
+		width: 137px;
+	}
+.expertise .slider-exp .item::before {
+    left: 841px;
+}
+.expertise .slider-exp .item:nth-of-type(1)::before {
+    left: 836px;
+}
+.expertise .slider-exp .item:nth-of-type(2)::before {
+    left: 428px;
+}
+	.box-form_callme {margin: 90px 0 90px 222px; max-width: 350px;}
+	.box-form_callme::before {
+		width: 640px; height: 640px;
+		top: calc(50% - 309px);	left: calc(50% - 294px);	
+	}
+	.box-form_callme::after {
+		width: 568px; height: 568px; border-width: 16px;
+		top: calc(50% - 273px);	left: calc(50% - 254px);
+	}
+	.box-form_callme p:first-child {line-height: 1.7em;}
+	.form_callme .default-input {font-size: 116%;}
+	.form_callme input[type="submit"] {font-size: 145%; padding: 0.7em;}
+}
