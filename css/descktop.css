@@ -42,8 +42,15 @@
 		.expertise .slider-exp .item:nth-of-type(2)::after {
 			width: 19px;
 		}
+		.expertise .slider-exp.YesAnimate .item::after {
+			animation: widthPlus 2s ease;
+			animation-iteration-count: 1;
+		}
+
 		.expertise .slider-exp .item::before {
-			left: 441px; top: calc(50% - 3px);
+			left: 441px; top: calc(50% - 3px); 
+			opacity: 0; transition: opacity 0.5s ease;
+			transition-delay: 2s;
 		}
 		.expertise .slider-exp .item:nth-of-type(1)::before {
 			left: 466px;
@@ -51,6 +58,8 @@
 		.expertise .slider-exp .item:nth-of-type(2)::before {
 			left: 256px;
 		}
+		.expertise .slider-exp.YesAnimate .item::before {opacity: 1;}
+
 	.expertise .slider-exp .img {position: relative;}
 	.expertise .slider-exp .img::after {
 		display: block; content: "";
@@ -91,8 +100,9 @@
 	.offer .img {width: 440px;}
 	.offer h1 {font-size: 185%;}
 	.offer .list {font-size: 130%; padding-bottom: 70px;}
+	.offer .list::after {width: 90px;}
 	.offer .callme {font-size: 125%; left: 90px;}
-	.offer .callme::after {top: calc(50% + 1px); width: 90px; left: -90px;}
+	/*.offer .callme::after {top: calc(50% + 1px); width: 90px; left: -90px;}*/
 	.offer .signman {font-size: 90%;}
 		.offer .signman p:last-child {width: 250px;}
 
@@ -143,15 +153,16 @@
 		font-size: 195%;   margin-top: 35px;
 		padding-bottom: 60px; padding-left: 23px;
 	}
-	.offer .list::after {height: 9px;}
+	.offer .list::after {width: 115px;}
 	.offer .list ul {text-transform: none;}
 	.offer li {margin-bottom: 1.2em;}
 	.offer li::after {
 		width: 15px; height: 15px;
 		top: 0.6ex; left: -32px;
 	}
+	.offer .list li:first-child::before {height: 9px; left: -24px;}
 	.offer .callme {font-size: 157%; left: 115px;}
-	.offer .callme::after {width: 115px; left: -115px; top: calc(50% + 2px);}
+	/*.offer .callme::after {width: 115px; left: -115px; top: calc(50% + 2px);}*/
 	.offer .callme a {width: 440px;}
 
 	/* expertise 1440px */
@@ -172,30 +183,30 @@
 		width: 30px; height: 30px;
 		left: 274px; top: calc(50% - 5px);
 	}
-	.expertise .slider-exp .item::after {left: 300px;width: 551px;}
+	.expertise .slider-exp .item::after {left: 300px;width: 541px;}
 	.expertise .slider-exp .item:nth-of-type(1)::after {
-		width: 543px;
+		width: 531px;
 	}
 	.expertise .slider-exp .item:nth-of-type(2)::after {
-		width: 137px;
+		width: 126px;
 	}
 .expertise .slider-exp .item::before {
-    left: 841px;
+    left: 833px;
 }
 .expertise .slider-exp .item:nth-of-type(1)::before {
-    left: 836px;
+    left: 822px;
 }
 .expertise .slider-exp .item:nth-of-type(2)::before {
-    left: 428px;
+    left: 415px;
 }
 	.box-form_callme {margin: 90px 0 90px 222px; max-width: 350px;}
 	.box-form_callme::before {
-		width: 640px; height: 640px;
-		top: calc(50% - 309px);	left: calc(50% - 294px);	
+		width: 320px; height: 320px;
+		top: calc(50% - 154px);	left: calc(50% - 147px);	
 	}
 	.box-form_callme::after {
-		width: 568px; height: 568px; border-width: 16px;
-		top: calc(50% - 273px);	left: calc(50% - 254px);
+		width: 284px; height: 284px; border-width: 8px;
+		top: calc(50% - 136px);	left: calc(50% - 127px);
 	}
 	.box-form_callme p:first-child {line-height: 1.7em;}
 	.form_callme .default-input {font-size: 116%;}

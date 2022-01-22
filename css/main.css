@@ -189,12 +189,14 @@ header .close {
 header .close.active {
   opacity: 1;
 }
+header.fixed {position:fixed; top: 0; width: 100%; z-index: 100}	
+
 
 /* offer  */
 .offer {
 	height: calc(90vh - 70px); max-height: 123vw;
 	background: #1f090e; color: #bf9037;
-	position: relative;
+	position: relative; overflowX: hidden;
 }
 	.offer p {margin: 0; padding: 0;}
 	.offer .img {
@@ -207,20 +209,32 @@ header .close.active {
 		font-size: 87%; text-transform: uppercase; font-weight: bold; color: #fff;
 		margin-top: 10vw; position: relative;
 	}
-		.offer h1 span {display: inline-block}
+		.offer h1 span {display: inline-block; animation: rightToLeft 1.2s ease;}
 		.offer h1 span.b {color: #bf9037; font-size: 187%; ;}
 	.offer .list {margin-top: 7vh; position: relative; width: 52%;}
 		.offer ul {
 			margin: 0; padding: 0; list-style: none; 
 			font-size: 89%; text-transform: uppercase; font-weight: bold;
 		}
-			.offer li {margin: 0 0 1em 0; position: relative;}
+			.offer li {
+				margin: 0 0 1em 0; position: relative; 
+				animation: bottomToTop 1s ease;
+				-webkit-animation-delay: 1s;
+			  animation-delay: 1s;
+			  animation-fill-mode: backwards;
+			}
 			.offer li::after {
 				display: block; content: "";
 				position: absolute; top: 0.5em; left: -23px;
 				height: 1px; width: 20px; background: #bf9037;
 			}	
-	.offer .callme {position: relative; top: 4vh;}
+	.offer .callme {
+		position: relative; top: 4vh;
+		animation: BigToDefault 1s ease;
+		-webkit-animation-delay: 1.7s;
+	  animation-delay: 1.7s;
+	  animation-fill-mode: backwards;
+	}
 	.offer .signman {
 		position: absolute; bottom: -9vh; right: 0;
 		width: 63%; background: #a0a0a0; padding: 1em;
@@ -276,7 +290,9 @@ header .close.active {
 .box-form_callme {
 	margin: 90px auto; position: relative; 
 	max-width: 320px; width: 100%;
+	opacity: 0; transition: opacity 2s ease;
 }
+.box-form_callme.YesAnimate {opacity: 1}
 .box-form_callme p {padding-left: 1.2rem;}
 	.box-form_callme p:first-child {font-size: 90%;}
 	.box-form_callme p:first-child strong {text-transform: uppercase;}
@@ -291,46 +307,28 @@ header .close.active {
 		display: block; content: "";
 		position: absolute;  
 		border-radius: 50%;
-		border: 2px solid #bf9037; 
+		border: 1px solid #bf9037; 
 		pointer-events: none;
-		/*animation: scalecicle ease 2s;*/
+		opacity: 0;
 	}
 	.box-form_callme::after {
-		width: 530px; height: 530px; 
-		top: calc(50% - 265px); left: calc(50% - 265px);
-		border-width: 13px;
+		width: 265px; height: 265px; 
+		top: calc(50% - 132px); left: calc(50% - 132px);
+		border-width: 6px;
 		border-left-color: transparent; border-top-color: transparent;
-		transform: rotate(-45deg);
+		transform: rotate(-45deg) scale(0.01);
 	}
 	.box-form_callme::before {
-		width: 600px; height: 600px;
-		top: calc(50% - 300px); left: calc(50% - 300px);
+		width: 300px; height: 300px;
+		top: calc(50% - 150px); left: calc(50% - 150px);
 		border-right-color: transparent;
-		transform: rotate(-45deg);
+		transform: rotate(-45deg) scale(0.01);
 	}
-@-webkit-keyframes scalecicle {
-  0% {
-    transform: scale(0.01) rotate(0);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1) rotate(-45deg);
-    opacity: 1;
-  }
-}
-
-@keyframes scalecicle {
-  0% {
-    transform: scale(0.01) rotate(0);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1) rotate(-45deg);
-    opacity: 1;
-  }
-}
+	.box-form_callme.YesAnimate::after,
+	.box-form_callme.YesAnimate::before {
+		animation: scalecicle ease 2s;
+	  animation-fill-mode: forwards;
+	}
 
 
 /* Подвал  */
@@ -366,24 +364,40 @@ footer {background: #000; color: #fff; padding: 1em 0; margin: 3em 0 0;}
 	.offer h1 {width: 60%; font-size: 115%; margin-top: 40px;}
 	.offer .list {
 		margin-top: 0; padding: 0px 0 40px 20px;
-		border-left:  1px solid #bf9037;
 	}
 			.offer li::after {
 				top: 0.5ex; left: -25px;
 				height: 10px; width: 10px;
 				border-radius: 50%;
 			}	
-			.offer .list::after {
+			.offer .list li:first-child::before {
 				display: block; content: "";
-				position: absolute; top: 0; left: -1px;
+				position: absolute; top: 0; left: -22px;
 				width: 3px; height: 4px; background: #1f090e;
 			}
+			.offer .list::before,
+			.offer .list::after {
+				display: block;	content: "";
+				position: absolute;background: #bf9037;
+				transform-origin: left top;
+			}
+			.offer .list::before {
+				top: 0;	left: 0;
+				width: 1px;	height: 100%;
+				animation: heightPlus 0.5s ease;
+				-webkit-animation-delay: 1.2s;
+			  animation-delay: 1.2s;
+			  animation-fill-mode: backwards;
+			}			
+			.offer .list::after {
+				top: 100%;	left: 0;
+				width: 20px;	height: 1px;
+				animation: widthPlus 0.5s ease;
+				-webkit-animation-delay: 1.7s;
+			  animation-delay: 1.7s;
+			  animation-fill-mode: backwards;
+			}			
 	.offer .callme {top: -1.5em; left: 20px; text-transform: uppercase; display: inline-block;}
-		.offer .callme::after {
-			display: block; content: "";
-			position: absolute; top: 50%; left: -20px;
-			width: 20px; height: 1px; background: #bf9037;;
-		}
 	.offer .signman {
 		bottom: 10px; right: 280px; background: none; width: 210px;
 		font-size: 70%; color: #bf9037; text-align: right;
@@ -406,6 +420,8 @@ footer {background: #000; color: #fff; padding: 1em 0; margin: 3em 0 0;}
 				display: block; content: "";
 				position: absolute; top: calc(100% + 10px); left: 50%;
 				width: 2px; height: 240px; background: #bf9037;
+				transform-origin: left top;
+				opacity: 0;
 		}
 		.expertise .slider-exp .item:nth-of-type(1)::after {
 			height: 146px;
@@ -418,6 +434,84 @@ footer {background: #000; color: #fff; padding: 1em 0; margin: 3em 0 0;}
 				position: absolute; top: 100%; left: calc(50% - 5px);
 				width: 12px; height: 12px; background: #bf9037;
 				border-radius: 50%;
+				transition: opacity 0.5s ease;
+				opacity: 0;
 		}
+		.expertise .slider-exp.YesAnimate .item::after {
+			  animation-fill-mode: forwards;
+			  animation-iteration-count: 1;
+				animation: heightPlus 2s ease;
+				opacity: 1;
+		}
+		.expertise .slider-exp.YesAnimate .item::before {
+			opacity: 1;
+		} 
 		.expertise .slider-exp .item p {margin-top: 0;}
+}
+
+@-webkit-keyframes rightToLeft {
+	from {transform: translateX(30%); opacity: 0;}
+	to {transform: translateX(0%); opacity: 1;}
+}
+@keyframes rightToLeft {
+	from {transform: translateX(30%); opacity: 0;}
+	to {transform: translateX(0%); opacity: 1;}
+}
+
+@-webkit-keyframes bottomToTop {
+	from {transform: translateY(30px); opacity: 0;}
+	to {transform: translateY(0); opacity: 1;}
+}
+@keyframes bottomToTop {
+	from {transform: translateY(30px); opacity: 0;}
+	to {transform: translateY(0%); opacity: 1;}
+}
+@-webkit-keyframes heightPlus {
+	from {transform: scaleY(0); opacity: 0;}
+	to {transform: scaleY(1); opacity: 1;}
+}
+@keyframes heightPlus {
+	from {transform: scaleY(0); opacity: 0;}
+	to {transform: scaleY(1); opacity: 1;}
+}
+@-webkit-keyframes widthPlus {
+	from {transform: scaleX(0); opacity: 0;}
+	to {transform: scaleX(1); opacity: 1;}
+}
+@keyframes widthPlus {
+	from {transform: scaleX(0); opacity: 0;}
+	to {transform: scaleX(1); opacity: 1;}
+}
+
+@-webkit-keyframes BigToDefault {
+	from {transform: scale(1.3); opacity: 0;}
+	to {transform: scale(1); opacity: 1;}
+}
+@keyframes BigToDefault {
+	from {transform: scale(1.3); opacity: 0;}
+	to {transform: scale(1); opacity: 1;}
+}
+
+@-webkit-keyframes scalecicle {
+  0% {
+    transform: scale(0.01) rotate(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(2) rotate(-45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes scalecicle {
+  0% {
+    transform: scale(0.01) rotate(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(2) rotate(-45deg);
+    opacity: 1;
+  }
 }
